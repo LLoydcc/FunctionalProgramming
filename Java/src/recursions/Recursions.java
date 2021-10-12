@@ -6,10 +6,6 @@ public class Recursions {
 
 		System.out.println(fibonacci(3));
 
-		/**
-		 * Aufgabe c) Hier wird 2 ausgegeben und die Funktion fibonacci_recursiv wird
-		 * insgesamt 5 mal aufgerufen.
-		 */
 		long ergebnis = fibonacci_recursiv(3);
 		System.out.println(ergebnis);
 
