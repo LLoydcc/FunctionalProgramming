@@ -27,6 +27,7 @@ library
   exposed-modules:
       Funktionsaufrufe
       Lib
+      Listen
   other-modules:
       Paths_Aufgaben
   hs-source-dirs:
