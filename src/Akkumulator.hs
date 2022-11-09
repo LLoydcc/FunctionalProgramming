@@ -34,7 +34,3 @@ bestnoten liste = bestnoten' liste []
             bestnoten' [] mnummern = mnummern
             bestnoten' ((mnummer, 1.0) : restliste) mnummern = bestnoten' restliste (mnummer : mnummern)
             bestnoten' ((_, _) : restliste) mnummern = bestnoten' restliste mnummern
-
-        
-          
-
