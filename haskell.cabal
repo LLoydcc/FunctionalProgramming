@@ -26,7 +26,10 @@ source-repository head
 library
   exposed-modules:
       Akkumulator
+      Auswertungen
+      Exercises
       Lib
+      TypDeklarationen
   other-modules:
       Paths_haskell
   hs-source-dirs:
