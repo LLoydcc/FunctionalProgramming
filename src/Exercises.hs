@@ -63,3 +63,48 @@ f_iter liste = f_iter' liste ([], [])
 --   2 + ((f 0 0) + (f 1 0))
 --   2 + 0 + 1
 --   = 3
+
+-- 4) why are lazy-evaluation processes not used in imperative languagues?
+
+-- lazy-evaluation is used to improve performance and to enable working with large datasets. 
+-- This is possible due the fact that lazy-evaluation delays the calculation of a process until 
+-- it is actualy needed. While variables or states can't be changed after execution in functional
+-- languages this can happen in declarative languages. So the order in which statements are executed 
+-- is important. That's why lazy-evaluation should not be used with declarative languages. 
+
+-- 5) given following data-declaration: 
+
+data Person = Student Name [(Fach, Note)]
+type Fach = String
+type Note = Double
+-- (type Name is defined at the top of the file)
+
+-- a) define a class for the following functions: 
+-- durchschnitt -> calculates the average of all Noten from a Person.
+-- besteNote    -> returns the best Note of a Person as a tuple of ([Fach], Note)
+
+class Schule a where
+    durchschnitt :: a -> Note
+    besteNote :: a -> ([Fach], Note)
+
+-- b) create an instance of the defined class and implement the function 
+-- besteNote for every Person.
+
+instance Schule Person where 
+    besteNote person = besteNote' person ([], 6.0)
+        where 
+            besteNote' _ [] noten = noten
+            besteNote' _ ((fach, note) : restliste) (faecher, best) 
+                | note < best = besteNote' restliste ([], note)    
+                | note == best = besteNote' restliste ((fach : faecher), best)
+                | otherwise = besteNote' restliste (faecher, best) 
+
+-- there are some difficulties with this function 
+-- (does not work right atm) but that's okay for now.
+
+-- c) define a test-Person and write a test-function for besteNote
+
+-- Person "Jim" [("Math", 2.0), ("Physics", 1.9), ("Biology", 3.2)]
+-- test :: Person -> ([Fach], Note)
+-- test person = besteNote person
+
