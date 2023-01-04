@@ -108,3 +108,22 @@ instance Schule Person where
 -- test :: Person -> ([Fach], Note)
 -- test person = besteNote person
 
+-- 6) find all mistakes in the following programm:
+
+-- 1. data Zahl = Eins | Zwei | Drei 
+-- 2. plus Eins Eins = Zwei
+-- 3. plus Zwei Eins = Drei
+-- 4. f :: [Zahl] -> Zahl -> Zahl
+-- 5. f xs y = if xs == [] then y else (x + y)
+-- 6.   where x :: Zahl
+-- 7.         x = head xs
+
+-- mistake line 1: the type Zahl is a completely new datatype which is not known by the class hierarchy of Haskell.
+-- to display or compare these types we need to add other datatypes to the defined type. 
+-- data Zahl = Eins | Zwei | Drei deriving (Show, Eq)
+
+-- mistake line 5: x and y are defined as Zahl. It is not possible to use + on that datatype. 
+-- Instead we could use the plus function as the following: 
+-- f xs y = if xs == [] then y else (plus x y)
+
+-- Lamda-expression for testing: (\Zahl Zahl -> plus Zahl Zahl) Eins Eins
