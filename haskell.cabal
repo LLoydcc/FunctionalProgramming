@@ -29,6 +29,7 @@ library
       Auswertungen
       Exercises
       Lib
+      Testat
       TypDeklarationen
   other-modules:
       Paths_haskell

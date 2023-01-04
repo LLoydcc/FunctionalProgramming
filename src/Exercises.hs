@@ -90,14 +90,14 @@ class Schule a where
 -- b) create an instance of the defined class and implement the function 
 -- besteNote for every Person.
 
-instance Schule Person where 
-    besteNote person = besteNote' person ([], 6.0)
-        where 
-            besteNote' _ [] noten = noten
-            besteNote' _ ((fach, note) : restliste) (faecher, best) 
-                | note < best = besteNote' restliste ([], note)    
-                | note == best = besteNote' restliste ((fach : faecher), best)
-                | otherwise = besteNote' restliste (faecher, best) 
+-- instance Schule Person where 
+--    besteNote person = besteNote' person ([], 6.0)
+--        where 
+--            besteNote' _ [] noten = noten
+--            besteNote' _ ((fach, note) : restliste) (faecher, best) 
+--                | note < best = besteNote' restliste ([], note)    
+--                | note == best = besteNote' restliste ((fach : faecher), best)
+--                | otherwise = besteNote' restliste (faecher, best) 
 
 -- there are some difficulties with this function 
 -- (does not work right atm) but that's okay for now.
