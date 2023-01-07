@@ -3,6 +3,11 @@ module Testat where
 -- 1) why is the following code incorrect?
 -- f x y = (==) [(1.3,'a')] x ++ y
 
+-- (==) [(1.3, 'a')] x is checking for equality between the tuple and value x
+-- with ++ the result of the equality check is concatenated to the value of y
+-- this won't work because ++ is looking for strings to concatenate but the first
+-- expression is a boolean value.
+
 -- 2) define a type for the following local function f:
 -- f :: Num a => a -> [a] -> [a]
 g = let f = \x y -> 1 : x : y in f 3 [2.5, 4]
